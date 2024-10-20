@@ -5,7 +5,7 @@ import { Footer, Navbar } from "../components";
 <template>
   <Navbar />
 
-  <main class="h-[1000px] bg-red-500">
+  <main>
     <router-view />
   </main>
   <footer>
