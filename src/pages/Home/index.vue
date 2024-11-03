@@ -1,3 +1,7 @@
+<script setup>
+import { Card } from "../../components";
+</script>
+
 <template>
   <!-- banner -->
   <section class="pt-10 px-20">
@@ -5,27 +9,24 @@
   </section>
   <!-- Event List -->
   <section class="mt-8 px-20">
-    <h3 class="font-bold text-2xl">Event Pilihan</h3>
+    <div class="flex justify-between items-center pb-2 border-b-2">
+      <h3 class="font-bold text-2xl">Event Pilihan</h3>
+      <p
+        class="text-sky-900 cursor-pointer text-sm hover:underline"
+        @click="this.$router.push('event')"
+      >
+        Lihat Selengkapnya
+      </p>
+    </div>
     <div class="mt-4">
       <div class="grid grid-cols-4 gap-4">
         <div
           v-for="item in [1, 2, 3, 4]"
           :key="item"
-          class="col-span-1 rounded-lg overflow-hidden border"
+          class="col-span-1"
+          @click="this.$router.push(`/event/${item}`)"
         >
-          <div class="thumbnail bg-red-500 w-full h-[200px]"></div>
-          <div class="p-2">
-            <div class="p-2 border-b-2">
-              <h4 class="font-semibold text-lg">Event Title</h4>
-              <p class="font-semibold text-gray-600 my-2 text-sm">
-                20 Okt 2024
-              </p>
-              <h4 class="font-semibold text-lg">Rp. 250.000</h4>
-            </div>
-            <div class="p-2">
-              <p class="text-sm">Soundfest 2024</p>
-            </div>
-          </div>
+          <Card />
         </div>
       </div>
     </div>
@@ -74,7 +75,7 @@
     </div>
   </section>
   <button
-    class="block mx-auto my-8 bg-sky-950 px-10 py-2 text-white rounded-md"
+    class="block mx-auto mt-8 bg-sky-950 px-10 py-2 text-white rounded-md"
   >
     Lihat Selengkapnya
   </button>

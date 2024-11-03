@@ -1,6 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { MainLayout } from "../layouts/index";
-import { AboutView, HomeView } from "../pages";
+import { AuthLayout, MainLayout } from "../layouts/index";
+import {
+  AboutView,
+  EventDetailView,
+  EventListView,
+  HomeView,
+  LoginView,
+  PaymentView,
+  RegisterView,
+} from "../pages";
 
 const routes = [
   {
@@ -12,10 +20,40 @@ const routes = [
         name: "home",
         component: HomeView,
       },
-      { path: "about", name: "about", component: AboutView },
+      {
+        path: "event",
+        name: "event",
+        component: EventListView,
+      },
+      {
+        path: "event/:id",
+        name: "event-detail",
+        component: EventDetailView,
+      },
+      {
+        path: "payment",
+        name: "payment",
+        component: PaymentView,
+      },
     ],
   },
-  ,
+  {
+    path: "/auth",
+    component: AuthLayout,
+    children: [
+      {
+        path: "",
+        name: "auth",
+        redirect: "/auth/login",
+      },
+      {
+        path: "login",
+        name: "login",
+        component: LoginView,
+      },
+      { path: "register", name: "register", component: RegisterView },
+    ],
+  },
 ];
 
 const router = createRouter({

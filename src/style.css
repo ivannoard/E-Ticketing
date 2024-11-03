@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ticket {
+  position: relative;
+  padding: 20px 70px;
+  @apply border border-sky-950;
+}
+
+.ticket-bottom::before {
+  content: "";
+  position: absolute;
+  bottom: 40px;
+  left: -2px;
+  width: 30px;
+  height: 55px;
+  border-top-right-radius: 75px;
+  border-bottom-right-radius: 75px;
+  background-color: white;
+  @apply border border-sky-950 border-l-0;
+}
+
+.ticket-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 40px;
+  right: -2px;
+  width: 30px;
+  height: 55px;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+  background-color: white;
+  @apply border border-sky-950 border-r-0;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  outline: 0;
+  z-index: 1;
+  transition: all 0.15s ease-in;
+}
+button:hover,
+button:focus {
+  opacity: 0.9;
+}
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+  }
+}
+.ripple:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: currentColor;
+  visibility: hidden;
+  z-index: 2;
+}
+.ripple:not(:active):before {
+  animation: ripple 0.4s cubic-bezier(0, 0, 0.2, 1);
+  transition: visibility 0.4s step-end;
+}
+.ripple:active:before {
+  visibility: visible;
+}
