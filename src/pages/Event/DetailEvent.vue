@@ -2,6 +2,9 @@
 import { computed, ref } from "vue";
 import { BreadCrumb } from "../../components";
 import { useRoute } from "vue-router";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const active = ref("Deskripsi");
 
@@ -158,7 +161,7 @@ function setActive(tab) {
           </div>
           <button
             class="ripple bg-sky-950 text-white w-full rounded-md mt-4 py-3 text-sm"
-            @click="this.$router.push('/payment')"
+            @click="router.push('/payment')"
           >
             Beli Tiket
           </button>

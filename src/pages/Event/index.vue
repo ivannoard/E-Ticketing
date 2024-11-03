@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import { Card } from "../../components";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const variableName = ref(null);
 </script>
@@ -14,7 +17,7 @@ const variableName = ref(null);
       <div
         v-for="item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
         :key="item"
-        @click="this.$router.push(`/event/${item}`)"
+        @click="router.push(`/event/${item}`)"
       >
         <Card />
       </div>

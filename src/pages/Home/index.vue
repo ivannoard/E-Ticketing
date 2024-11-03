@@ -1,5 +1,8 @@
 <script setup>
 import { Card } from "../../components";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 </script>
 
 <template>
@@ -13,7 +16,7 @@ import { Card } from "../../components";
       <h3 class="font-bold text-2xl">Event Pilihan</h3>
       <p
         class="text-sky-900 cursor-pointer text-sm hover:underline"
-        @click="this.$router.push('event')"
+        @click="router.push('event')"
       >
         Lihat Selengkapnya
       </p>
@@ -24,7 +27,7 @@ import { Card } from "../../components";
           v-for="item in [1, 2, 3, 4]"
           :key="item"
           class="col-span-1"
-          @click="this.$router.push(`/event/${item}`)"
+          @click="router.push(`/event/${item}`)"
         >
           <Card />
         </div>
